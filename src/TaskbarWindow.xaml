@@ -27,7 +27,7 @@
             </Button>
             <Button x:Name="windowsButton" Click="WindowsLogo_Click" Style="{StaticResource FlatButton}" Width="48" Padding="0" 
                     Height="48" Background="Transparent" Margin="64,0" MouseRightButtonUp="WindowsButton_MouseRightButtonUp">
-                <Glyphs FontUri="pack://application:,,,/MobileShell;component/Fonts/HOLOMDL2.TTF" Height="20" Width="20" HorizontalAlignment="Left" 
+                <Glyphs x:Name="windowsLogo" FontUri="pack://application:,,,/MobileShell;component/Fonts/HOLOMDL2.TTF" Height="20" Width="20" HorizontalAlignment="Left" 
                     FontRenderingEmSize="20" Fill="#bfbfbf" Margin="8" UnicodeString="&#xE782;" />
             </Button>
             <Button x:Name="searchButton" Click="SearchButton_Click" Style="{StaticResource FlatButton}" Width="48" Padding="0" 
