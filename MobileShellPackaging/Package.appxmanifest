@@ -12,7 +12,7 @@
   <Identity
     Name="MobileShell"
     Publisher="CN=Shado"
-    Version="1.0.1.0" />
+    Version="0.0.725.0" />
 
   <Properties>
     <DisplayName>MobileShell</DisplayName>
