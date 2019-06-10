@@ -193,17 +193,21 @@ namespace MobileShell
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // Turn on Acrylic, and set the initial background of the status bar to the system accent color.
+           
+            
+            
+           /** The following code has been disabled due to changes in the statusbar XAML that I am unsure how to proceed with.
             if (SystemParameters.IsGlassEnabled == true)
             {
                 new AcrylicBlur(this).EnableBlur();
-                gridStatusBarAcrylicBackground.Background = SystemParameters.WindowGlassBrush;
-                gridStatusBarAcrylicBackground.Opacity = 0.25;
+                gridStatusBar.Background = SystemParameters.WindowGlassBrush;
+                gridStatusBar.Opacity = 0.25;
             } else
             {
-                gridStatusBarAcrylicBackground.Background = new SolidColorBrush(Colors.Black);
-                gridStatusBarAcrylicBackground.Opacity = 1;
-            }
+                gridStatusBar.Background = new SolidColorBrush(Colors.Black);
+                gridStatusBar.Opacity = 1;
+            }*/
+
             //Update the battery percentage.
             UpdateBatteryIconAndPercentage();
 

@@ -135,14 +135,13 @@ namespace MobileShell
                 // If we've hit here, it means DWM's coloring changed. Let's apply the new coloring.
                 if (SystemParameters.IsGlassEnabled == true)
                 {
-                    gridTaskbarAcrylicBackground.Background = SystemParameters.WindowGlassBrush;
-                    App.stBar.gridStatusBarAcrylicBackground.Background = SystemParameters.WindowGlassBrush;
-                    App.stBar.gridStatusBarAcrylicBackground.Opacity = 0.25;
+                    gridAcrylicBackground.Background = SystemParameters.WindowGlassBrush;
+                    gridAcrylicBackground.Opacity = 0.24;
                 }
                 else
                 {
-                    App.stBar.gridStatusBarAcrylicBackground.Background = SystemColors.ControlBrush;
-                    App.stBar.gridStatusBarAcrylicBackground.Opacity = 1;
+                    gridAcrylicBackground.Background = SystemColors.ControlBrush;
+                    gridAcrylicBackground.Opacity = 1;
                     windowsLogo.Fill = SystemParameters.WindowGlassBrush;
                 }
             }
@@ -152,8 +151,18 @@ namespace MobileShell
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
-            
+            new AcrylicBlur(this).EnableBlur();
+            if (SystemParameters.IsGlassEnabled == true)
+            {
+                gridAcrylicBackground.Background = SystemParameters.WindowGlassBrush;
+                gridAcrylicBackground.Opacity = 0.24;
+            }
+            else
+            {
+                gridAcrylicBackground.Background = SystemColors.ControlBrush;
+                gridAcrylicBackground.Opacity = 1;
+                windowsLogo.Fill = SystemParameters.WindowGlassBrush;
+            }
 
             //Turn();
         }

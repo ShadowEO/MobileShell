@@ -36,14 +36,14 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.ColumnSpan="5" Background="#FF000000" PreviewTouchDown="Grid_PreviewTouchDown" />
+        <Grid x:Name="gridAcrylicBackground" Grid.ColumnSpan="5" Background="Transparent" Opacity="0.25" PreviewTouchDown="Grid_PreviewTouchDown" />
         
         <Button Grid.Column="1" Stylus.IsPressAndHoldEnabled="False" PreviewTouchDown="Button_PreviewTouchDown" Style="{StaticResource FlatButton}" x:Name="backButton" MouseRightButtonUp="BackButton_MouseRightButtonUp">
             <Glyphs FontUri="C:\Windows\Fonts\segmdl2.ttf" UnicodeString="" />
         </Button>
 
         <Button Grid.Column="2" x:Name="windowsButton" Click="WindowsLogo_Click" Style="{StaticResource FlatButton}" MouseRightButtonUp="WindowsButton_MouseRightButtonUp">
-            <Glyphs FontUri="pack://application:,,,/MobileShell;component/Fonts/HOLOMDL2.TTF" UnicodeString="&#xE782;" />
+            <Glyphs x:Name="windowsLogo" FontUri="pack://application:,,,/MobileShell;component/Fonts/HOLOMDL2.TTF" UnicodeString="&#xE782;" />
         </Button>
 
         <Button Grid.Column="3" x:Name="searchButton" Click="SearchButton_Click" Style="{StaticResource FlatButton}">
