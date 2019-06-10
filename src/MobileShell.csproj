@@ -68,7 +68,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\AcrylicBlur.cs" />
+    <Compile Include="Classes\AcrylicThemeHelper\WindowsThemeHelper.cs" />
     <Compile Include="Classes\AppBar.cs" />
+    <Compile Include="Classes\AcrylicThemeHelper\BarThemeHelper.cs" />
     <Compile Include="Classes\HookEngine.cs" />
     <Compile Include="Classes\WnfQueries.cs" />
     <Compile Include="Classes\WPFHelper.cs" />
@@ -145,6 +147,6 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y $(TargetPath) C:\NETWORK_SHARE\$(TargetFileName)</PostBuildEvent>
+    <!-- <PostBuildEvent>copy /Y $(TargetPath) C:\NETWORK_SHARE\$(TargetFileName)</PostBuildEvent> -->
   </PropertyGroup>
 </Project>

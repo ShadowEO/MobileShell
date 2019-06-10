@@ -43,7 +43,7 @@ namespace MobileShell.Classes
         WCA_ACCENT_POLICY = 19
     }
 
-    internal class AcrylicBlur
+    public class AcrylicBlur
     {
         [DllImport("user32.dll")]
         internal static extern int SetWindowCompositionAttribute(IntPtr hwnd, ref WindowCompositionAttributeData data);
@@ -55,7 +55,7 @@ namespace MobileShell.Classes
             set { _blurOpacity = (uint)value; EnableBlur(); }
         }
 
-        private uint _blurBackgroundColor = 0x999999; /* BGR color format */
+        private uint _blurBackgroundColor = 0x990000; /* BGR color format */
         public Window Window { get; set; }
 
 
@@ -66,7 +66,7 @@ namespace MobileShell.Classes
 
         public void EnableBlur()
         {
-            var windowHelper = new WindowInteropHelper(Window);
+            var windowHelper = new WindowInteropHelper(this.Window);
 
             var accent = new AccentPolicy
             {
@@ -85,6 +85,7 @@ namespace MobileShell.Classes
                 SizeOfData = accentStructSize,
                 Data = accentPtr
             };
+
 
             SetWindowCompositionAttribute(windowHelper.Handle, ref data);
 

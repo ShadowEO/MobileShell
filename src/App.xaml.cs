@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
+using Windows.UI.Xaml.Media; // As of the FCU, Acrylic Blur APIs can be found here
 using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.Calls;
 using Windows.ApplicationModel.Calls.Provider;
@@ -32,14 +33,15 @@ namespace MobileShell
         public static float DPI { get; set; } = 1F;
         public static bool IsTabletMode { get; set; }
         public static HookEngine Kbh { get; set; }
+       
 
         //We don't wanna GC to collect this, right? *yells*
         private WnfQueries.WnfUserCallback wnfCallback;
 
         #region Main instances of Window(s)
 
-        private static StatusBarWindow stBar;
-        private static TaskbarWindow tkBar;
+        public static StatusBarWindow stBar;
+        public static TaskbarWindow tkBar;
         private static VolumeAudioFlyout vlFly;
 
         #endregion
@@ -78,7 +80,7 @@ namespace MobileShell
             ////END TODO.
 
 
-            DPI = (float)VisualTreeHelper.GetDpi(stBar).DpiScaleX;
+            DPI = (float)System.Windows.Media.VisualTreeHelper.GetDpi(stBar).DpiScaleX; //Change this to an explicit reference, as Windows.UI.Xaml.Media contains a VisualTreeHelper that does not support GetDpi.
 
             PowerManager.BatteryStatusChanged += (_, __) => stBar?.UpdateBatteryIconAndPercentage();
             PowerManager.EnergySaverStatusChanged += (_, __) => stBar?.UpdateBatteryIconAndPercentage();

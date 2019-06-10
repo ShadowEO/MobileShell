@@ -188,8 +188,17 @@ namespace MobileShell
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //new AcrylicBlur(this).EnableBlur();
-
+            // Turn on Acrylic, and set the initial background of the status bar to the system accent color.
+            if (SystemParameters.IsGlassEnabled == true)
+            {
+                new AcrylicBlur(this).EnableBlur();
+                gridStatusBarAcrylicBackground.Background = SystemParameters.WindowGlassBrush;
+                gridStatusBarAcrylicBackground.Opacity = 0.25;
+            } else
+            {
+                gridStatusBarAcrylicBackground.Background = new SolidColorBrush(Colors.Black);
+                gridStatusBarAcrylicBackground.Opacity = 1;
+            }
             //Update the battery percentage.
             UpdateBatteryIconAndPercentage();
 

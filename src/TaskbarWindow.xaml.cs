@@ -1,4 +1,5 @@
 ﻿using MobileShell.Classes;
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -22,6 +23,7 @@ namespace MobileShell
         private readonly Stopwatch _doubleTapStopwatch = new Stopwatch();
         private Point? _lastTapLocation;
 
+        
         public TaskbarWindow()
         {
             ShowActivated = false;
@@ -104,6 +106,7 @@ namespace MobileShell
                 {
                     if (msg == 0x0006)
                         AppBar.AppBarActivate(hwnd);
+
                     else
                         App.HideExplorerTaskbar();
                 }
@@ -126,13 +129,30 @@ namespace MobileShell
                 App.DPI = (wParam.ToInt32() & 0xFFFF) / 96F;
                 App.UpdateScreenAppBar();
             }
+            else if (msg == 0x320) //WM_DWMCOLORIZATIONCHANGED
+            {
+                // If we've hit here, it means DWM's coloring changed. Let's apply the new coloring.
+                if (SystemParameters.IsGlassEnabled == true)
+                {
+                    gridTaskbarAcrylicBackground.Background = SystemParameters.WindowGlassBrush;
+                    App.stBar.gridStatusBarAcrylicBackground.Background = SystemParameters.WindowGlassBrush;
+                    App.stBar.gridStatusBarAcrylicBackground.Opacity = 0.25;
+                }
+                else
+                {
+                    App.stBar.gridStatusBarAcrylicBackground.Background = SystemColors.ControlBrush;
+                    App.stBar.gridStatusBarAcrylicBackground.Opacity = 1;
+                    windowsLogo.Fill = SystemParameters.WindowGlassBrush;
+                }
+            }
 
             return IntPtr.Zero;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //new AcrylicBlur(this).EnableBlur();
+            
+            
 
             //Turn();
         }

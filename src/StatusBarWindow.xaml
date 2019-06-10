@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:media="using:Windows.UI.Xaml.Media"
         xmlns:local="clr-namespace:MobileShell"
         xmlns:controls="clr-namespace:MobileShell.Controls"
         mc:Ignorable="d"
@@ -16,10 +17,14 @@
         Focusable="False"
         UseLayoutRounding="True"
         Topmost="True"
-        Background="#FF000000" 
+        Background="Transparent" 
         Height="24">
-    
+
+    <!-- If using acrylic, the bar background must be transparent, or apply Opacity -->
+
     <Grid x:Name="gridStatusBar">
+        <Grid x:Name="gridAcrylicBackground" Opacity="1" Background="Black" />
+        <!-- Grid object for handling blurring programmatically, set the colorization and opacity using code -->
         <StackPanel Orientation="Horizontal">
             <StackPanel Margin="12,0,0,0" x:Name="phoneLinesStackPanel" Orientation="Horizontal" />
 
@@ -27,7 +32,7 @@
                 <Glyphs x:Name="roamingGlyph" FontUri="C:\Windows\Fonts\segmdl2.ttf" Height="16" Width="16" HorizontalAlignment="Center" 
                     FontRenderingEmSize="16" Fill="#ffffff" UnicodeString="&#xE878;" />
             </Grid>
-            
+
             <Grid x:Name="wifiGrid" Visibility="Collapsed" Width="22" Height="24" Background="Transparent">
                 <Grid x:Name="wifiComposedGlyphsGrid">
                     <Glyphs FontUri="C:\Windows\Fonts\segmdl2.ttf" Height="16" Width="16" HorizontalAlignment="Center" 
@@ -48,17 +53,17 @@
                 <Glyphs x:Name="notificationGlyph" FontUri="C:\Windows\Fonts\segmdl2.ttf" Height="16" Width="16" HorizontalAlignment="Center" 
                     FontRenderingEmSize="16" Fill="#ffffff" Margin="0,0,0,2" UnicodeString="&#xEC42;" />
             </Grid>
-            
+
             <Grid x:Name="locationGrid" Visibility="Collapsed" Width="22" Height="24" Background="Transparent">
                 <Glyphs x:Name="locationGlyph" FontUri="C:\Windows\Fonts\segmdl2.ttf" Height="16" Width="16" HorizontalAlignment="Center" 
                     FontRenderingEmSize="16" Fill="#ffffff" UnicodeString="&#xEC43;" />
             </Grid>
-            
+
             <Grid x:Name="focusGrid" Visibility="Collapsed" Width="22" Height="24" Background="Transparent">
                 <Glyphs x:Name="focusGlyph" FontUri="C:\Windows\Fonts\segmdl2.ttf" Height="16" Width="16" HorizontalAlignment="Center" 
                     FontRenderingEmSize="16" Fill="#ffffff" UnicodeString="&#xEC46;" FlowDirection="LeftToRight" />
             </Grid>
-            
+
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,12,0">
             <Grid Width="40" Height="24" Background="Transparent">
@@ -67,7 +72,7 @@
             </Grid>
             <TextBlock x:Name="batteryPercentage" FontSize="11" Margin="0,0,-4,2" Text="0%" Foreground="#ffffff" 
                        HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible" />
-            
+
             <Grid Width="40" Height="24" Background="Transparent">
                 <Glyphs x:Name="batteryGlyph" FontUri="C:\Windows\Fonts\segmdl2.ttf" Height="16" Width="24" HorizontalAlignment="Center" 
                     FontRenderingEmSize="16" Fill="#ffffff" UnicodeString="&#xEC02;" />
@@ -75,7 +80,7 @@
 
             <TextBlock x:Name="clockTextBox" FontSize="13.5" Margin="0,0,0,1" Text="00:00" Foreground="#ffffff" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </StackPanel>
-        <TextBlock Visibility="Visible" Text="MobileShell &#x1F955; r725" Foreground="White" FontWeight="SemiBold" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        <TextBlock Visibility="Visible" Name="centerText"  Text="MobileShell &#x1F955; r725" Foreground="White" FontWeight="SemiBold" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center" />
         <Button Style="{StaticResource FlatButton}" Click="Button_Click" />
     </Grid>
 </Window>
