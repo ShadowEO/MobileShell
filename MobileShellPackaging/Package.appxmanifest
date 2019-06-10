@@ -10,12 +10,12 @@
   IgnorableNamespaces="uap rescap desktop">
 
   <Identity
-    Name="MobileShell"
-    Publisher="CN=Shado"
-    Version="0.0.725.0" />
+    Name="1407ADeltaX.MobileShell"
+    Publisher="CN=8B6B3050-BC98-487A-8EF5-8F8C0CC5340D"
+    Version="0.0.814.0" />
 
   <Properties>
-    <DisplayName>MobileShell</DisplayName>
+    <DisplayName>MobileShell Alpha</DisplayName>
     <PublisherDisplayName>ADeltaX</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
@@ -36,7 +36,7 @@
       <Extensions>
         <desktop:Extension Category="windows.startupTask">
           <!--Executable="" EntryPoint="Windows.FullTrustApplication"> -->
-          <desktop:StartupTask TaskId="MobileShell" Enabled="true" DisplayName="Replace the standard Windows tablet mode shell with MobileShell" />
+          <desktop:StartupTask TaskId="MobileShell" Enabled="false" DisplayName="Replace Windows tablet mode with MobileShell" />
         </desktop:Extension>
         <uap5:Extension Category="windows.appExecutionAlias">
           <uap5:AppExecutionAlias>
@@ -45,12 +45,12 @@
         </uap5:Extension>
       </Extensions>
       <uap:VisualElements
-        DisplayName="MobileShell"
+        DisplayName="MobileShell Alpha"
         Description="MobileShell is a mobile-oriented shell alternative for Windows 10 devices which replaces the standard tablet mode interface."
         BackgroundColor="transparent"
         Square150x150Logo="Images\Square150x150Logo.png"
         Square44x44Logo="Images\Square44x44Logo.png">
-        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" />
+        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png"  Square71x71Logo="Images\SmallTile.png" Square310x310Logo="Images\LargeTile.png"/>
         <uap:SplashScreen Image="Images\SplashScreen.png" />
         <uap:InitialRotationPreference>
           <uap:Rotation Preference="landscape"/>
