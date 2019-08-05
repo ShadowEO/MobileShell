@@ -15,6 +15,7 @@
         Visibility="Visible"
         UseLayoutRounding="True"
         Topmost="True"
+        Background="Transparent"
         Height="48">
 
     <Window.Resources>
@@ -35,7 +36,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.ColumnSpan="5" Background="{DynamicResource NavbarBackgroundBrush}" PreviewTouchDown="Grid_PreviewTouchDown" />
+        <Grid Grid.ColumnSpan="5" Background="{DynamicResource ImmersiveSystemAccentBrush}" PreviewTouchDown="Grid_PreviewTouchDown" Opacity="0.25" />
         
         <Button Grid.Column="1" Stylus.IsPressAndHoldEnabled="False" PreviewTouchDown="Button_PreviewTouchDown" Style="{StaticResource FlatButton}" x:Name="backButton" MouseRightButtonUp="BackButton_MouseRightButtonUp">
             <Glyphs FontUri="C:\Windows\Fonts\segmdl2.ttf" UnicodeString="" />

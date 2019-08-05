@@ -128,12 +128,13 @@ namespace MobileShell
                 App.UpdateScreenAppBar();
             }
 
+
             return IntPtr.Zero;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //new AcrylicBlur(this).EnableBlur();
+            new AcrylicBlur(this).EnableBlur();
 
             //Turn();
         }

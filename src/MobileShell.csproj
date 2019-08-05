@@ -175,6 +175,6 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y $(TargetPath) C:\NETWORK_SHARE\$(TargetFileName)</PostBuildEvent>
+    <!-- <PostBuildEvent>copy /Y $(TargetPath) C:\NETWORK_SHARE\$(TargetFileName)</PostBuildEvent> -->
   </PropertyGroup>
 </Project>

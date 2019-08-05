@@ -123,6 +123,7 @@ namespace MobileShell
                 SetWindowLong(wndHelper.Handle, (int)GetWindowLongFields.GWL_EXSTYLE, (IntPtr)exStyle);
 
                 appbarMessageId = AppBar.RegisterBar(this, Screen.PrimaryScreen, Width * App.DPI, Height * App.DPI, ABEdge.ABE_TOP); //Height
+                
                 //Turn();
             }));
         }
@@ -193,8 +194,9 @@ namespace MobileShell
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //new AcrylicBlur(this).EnableBlur();
+            new AcrylicBlur(this).EnableBlur();
 
+            //StatusBarWindow.Background = SystemParameters.WindowGlassBrush;
             //Update the battery percentage.
             UpdateBatteryIconAndPercentage();
 

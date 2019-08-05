@@ -16,8 +16,10 @@
         Focusable="False"
         UseLayoutRounding="True"
         Topmost="True"
-        Background="{DynamicResource SystemAltHighBrush}" 
+        Background="Transparent"
+        x:Name="StatusBarWindowXaml"
         Height="24">
+
 
     <Window.Resources>
         <Style TargetType="Glyphs">
@@ -26,18 +28,22 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="Fill" Value="{DynamicResource SystemBaseHighBrush}" />
         </Style>
-        
+
         <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="{DynamicResource SystemBaseHighBrush}" />
         </Style>
     </Window.Resources>
 
-    <Grid x:Name="gridStatusBar" Height="24" Margin="12,0,12,0" VerticalAlignment="Center">
+
+
+    <Grid x:Name="gridStatusBar" Height="24" Margin="12,0,12,0" VerticalAlignment="Center" Opacity="1" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
+
+        <Grid x:Name="StatusBarBackground" Background="{DynamicResource ImmersiveSystemAccentBrush}" Opacity="0.25" VerticalAlignment="Center" Grid.ColumnSpan="3" Height="24" Margin="-12,0,0.4,0" />
 
         <StackPanel Orientation="Horizontal">
 
@@ -80,7 +86,9 @@
         </StackPanel>
 
         <TextBlock Grid.ColumnSpan="3" Text="MobileShell &#x1F955; r888" FontFamily="Segoe UI Emoji" FontWeight="Regular" FontSize="12" VerticalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,0,0,2"/>
-        
+
         <Button Grid.ColumnSpan="3" Style="{StaticResource FlatButton}" Click="Button_Click" />
+
     </Grid>
+
 </Window>
