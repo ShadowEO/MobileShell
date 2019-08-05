@@ -127,7 +127,7 @@ namespace MobileShell
                 App.DPI = (wParam.ToInt32() & 0xFFFF) / 96F;
                 App.UpdateScreenAppBar();
             }
-
+            //
 
             return IntPtr.Zero;
         }
