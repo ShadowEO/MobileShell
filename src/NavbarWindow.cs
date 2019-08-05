@@ -127,6 +127,11 @@ namespace MobileShell
                 App.DPI = (wParam.ToInt32() & 0xFFFF) / 96F;
                 App.UpdateScreenAppBar();
             }
+            else if (msg == 0x320) //WM_DWMCOLORIZATIONCHANGED
+            {
+                // The accent color has changed in the system's settings, let's update the UI's Fill color.
+                windowsLogo.Fill = SystemParameters.WindowGlassBrush;
+            }
 
 
             return IntPtr.Zero;
@@ -135,6 +140,9 @@ namespace MobileShell
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             new AcrylicBlur(this).EnableBlur();
+
+            // Filling the color of the Windows Logo button with the user's accent color
+            windowsLogo.Fill = SystemParameters.WindowGlassBrush;
 
             //Turn();
         }
